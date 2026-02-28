@@ -1,13 +1,20 @@
 # Define C++ GDExtension Library
 add_library(GodotPP SHARED
         src/gd_example.cpp
+        src/player.cpp
         src/register_types.cpp
 )
+
+set(SNL_LIB_PATH "${CMAKE_BINARY_DIR}/_deps/snl-build/snl.lib")
+
 target_link_libraries(GodotPP PRIVATE
         godot::cpp
-        snl
+        "${SNL_LIB_PATH}"
+        QNS
 )
+
 target_include_directories(GodotPP PUBLIC include)
+target_include_directories(GodotPP PRIVATE ../qns/include)
 
 # The "Install" Step (Copy Lib + Generate .gdextension)
 add_custom_command(TARGET GodotPP POST_BUILD

@@ -1,0 +1,9 @@
+[configuration]
+entry_symbol = "qns_init"
+compatibility_minimum = 4.1
+
+[libraries]
+windows.debug.x86_64 = "res://addons/qns/bin/QNS.dll"
+windows.release.x86_64 = "res://addons/qns/bin/QNS.dll"
+linux.debug.x86_64 = "res://addons/qns/bin/libQNS.so"
+linux.release.x86_64 = "res://addons/qns/bin/libQNS.so"

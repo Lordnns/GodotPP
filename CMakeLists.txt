@@ -14,14 +14,16 @@ if(APPLE)
     set(GODOT_EXECUTABLE "${GODOT_CACHE_DIR}/Godot.app/Contents/MacOS/Godot")
     set(GODOT_OUTPUT_DIR "${GODOT_PROJECT_DIR}/bin/macos/arm64")
 elseif(WIN32)
-    set(GODOT_EXECUTABLE "${GODOT_CACHE_DIR}/Godot_v${GODOT_VERSION}_windows_win64.exe")
+    set(GODOT_EXECUTABLE "${GODOT_CACHE_DIR}/Godot_v${GODOT_VERSION}_win64.exe")
     set(GODOT_OUTPUT_DIR "${GODOT_PROJECT_DIR}/bin/windows")
 else()
     set(GODOT_EXECUTABLE "${GODOT_CACHE_DIR}/Godot_v${GODOT_VERSION}_linux.x86_64")
     set(GODOT_OUTPUT_DIR "${GODOT_PROJECT_DIR}/bin/linux")
 endif()
 
-add_subdirectory(externals)
+add_subdirectory(externals/godot-cpp)
+add_subdirectory(externals/entt)
+
 add_subdirectory(src)
 
 # Target: setup (Downloads Godot)
